@@ -33,7 +33,7 @@
 					<p v-else>En rupture de stock</p>
 					<div>
 						<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
-						<input v-model.number="item.quantity" id="add-item-quantity" type="number" />
+						<input v-model="item.quantity" id="add-item-quantity" type="number" />
 						<button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 				email: "hello@cafewithavue.bakery",
 				phone: "01 88 88 88 88",
 				restaurantName: "La belle vue",
-				shoppingCart: 0,
+				shoppingCart: ,
 
 				simpleMenu: [
 					{
@@ -109,7 +109,7 @@
 			},
 			methods: {
 				addToShoppingCart(amount){
-					return this.shoppingCart += amount;
+					this.shoppingCart+=amount;
 				}
 			}
 		})

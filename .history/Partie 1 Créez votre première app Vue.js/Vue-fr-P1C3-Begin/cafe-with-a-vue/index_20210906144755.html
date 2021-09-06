@@ -38,15 +38,14 @@
 			const app = new Vue({
 				el: "#app",
 				data: {
-					restaurantName: "La belle Vue",
+					restaurantName: "Café avec vue",
 					adresse : "18 avenue du Beurre, Paris, France",
 					telephone : "01 88 88 88 88",
 					email : "hello@cafewithavue.bakery"
 				},
 				computed : {
 					copyright(){
-						const currentYear = new Date().getFullYear()
-						return `Copyright ${this.restaurantName} ${currentYear}`;
+						return 
 					} 
 				}
 			})

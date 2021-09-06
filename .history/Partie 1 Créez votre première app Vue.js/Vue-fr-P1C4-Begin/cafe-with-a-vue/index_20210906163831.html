@@ -32,16 +32,16 @@
 					<p v-if="item.inStock">En stock</p>
 					<p v-else>En rupture de stock</p>
 					<div>
-						<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
-						<input v-model.number="item.quantity" id="add-item-quantity" type="number" />
-						<button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
+						<label for="add-item-quantity">Quantité :</label>
+						<input v-model="item.quantity" id="add-item-quantity" type="number" />
+						<button @click="addToShoppingCart()">Ajouter au panier d'achat</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<aside class="shopping-cart">
-			<h2>Panier d'achat: {{ shoppingCart }} articles</h2>
+			<h2>Panier d'achat: {{ nombre }} articles</h2>
 		</aside>
 
 		<h2>Contactez nous</h2>
@@ -56,7 +56,7 @@
 		</ul>
 
 		<footer class="footer">
-			<p> {{ copyright }} </p>
+			<p>Copyright {{ addToShoppingCart }} 2020</p>
 		</footer>
 	</div>
 
@@ -69,8 +69,6 @@
 				email: "hello@cafewithavue.bakery",
 				phone: "01 88 88 88 88",
 				restaurantName: "La belle vue",
-				shoppingCart: 0,
-
 				simpleMenu: [
 					{
 						name: "Croissant",
@@ -108,8 +106,8 @@
 				}
 			},
 			methods: {
-				addToShoppingCart(amount){
-					return this.shoppingCart += amount;
+				addToShoppingCart(){
+					return this.quantity;
 				}
 			}
 		})

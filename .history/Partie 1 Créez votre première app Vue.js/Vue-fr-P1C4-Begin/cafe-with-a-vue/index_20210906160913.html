@@ -24,24 +24,24 @@
 			<div v-for="item of simpleMenu" class="menu-item">
 				<img 
 					class="menu-item__image"
-					:src="item.image.source"
+					:src="item.image.source }}"
 					:alt="item.image.alt" 
 				/>
 				<div>
 					<h3>Nom de l'article</h3>
-					<p v-if="item.inStock">En stock</p>
-					<p v-else>En rupture de stock</p>
+					<p>En stock</p>
+					<p>En rupture de stock</p>
 					<div>
-						<label for="add-item-quantity">Quantité : {{ item.quantity }}</label>
-						<input v-model.number="item.quantity" id="add-item-quantity" type="number" />
-						<button @click="addToShoppingCart(item.quantity)">Ajouter au panier d'achat</button>
+						<label for="add-item-quantity">Quantité :</label>
+						<input id="add-item-quantity" type="number" />
+						<button>Ajouter au panier d'achat</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<aside class="shopping-cart">
-			<h2>Panier d'achat: {{ shoppingCart }} articles</h2>
+			<h2>Panier d'achat: 0 articles</h2>
 		</aside>
 
 		<h2>Contactez nous</h2>
@@ -56,7 +56,7 @@
 		</ul>
 
 		<footer class="footer">
-			<p> {{ copyright }} </p>
+			<p>Copyright {{ restaurantName }} 2020</p>
 		</footer>
 	</div>
 
@@ -69,8 +69,6 @@
 				email: "hello@cafewithavue.bakery",
 				phone: "01 88 88 88 88",
 				restaurantName: "La belle vue",
-				shoppingCart: 0,
-
 				simpleMenu: [
 					{
 						name: "Croissant",
@@ -79,7 +77,7 @@
 							alt: "Un croissant"
 						},
 						inStock: true,
-						quantity: ''
+						quantity: 1
 					},
 					{
 						name: "Baguette de pain",
@@ -88,7 +86,7 @@
 							alt: "Quatre baguettes de pain"
 						},
 						inStock: true,
-						quantity: ''
+						quantity: 1
 					},
 					{
 						name: "Éclair",
@@ -97,7 +95,7 @@
 							alt: "Éclair au chocolat"
 						},
 						inStock: false,
-						quantity: ''
+						quantity: 1
 					}
 				]
 			},
@@ -105,11 +103,6 @@
 				copyright() {
 					const currentYear = new Date().getFullYear();
 					return `Copyright ${this.restaurantName} ${currentYear}`;
-				}
-			},
-			methods: {
-				addToShoppingCart(amount){
-					return this.shoppingCart += amount;
 				}
 			}
 		})
